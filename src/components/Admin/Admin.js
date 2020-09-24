@@ -16,10 +16,10 @@ class Admin extends Component {
         </thead>
         <tbody>
             <tr>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
             </tr>
         </tbody>
       </div>
