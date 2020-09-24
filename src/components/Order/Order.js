@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import axios from 'axios';
+import { HashRouter as Router, Route, Link } from 'react-router-dom';
+import Checkout from '../Checkout/Checkout.js';
 
 class Order extends Component {
 
@@ -13,6 +15,7 @@ class Order extends Component {
   }
 
   orderGet = () => {
+    console.log('orderGet triggered');
     axios({
       method: 'GET',
       url: '/api/order'
@@ -48,7 +51,13 @@ class Order extends Component {
     return (
       <div>
         <form onSubmit={this.orderGet}>
-          <button>Next</button><br></br>
+          <Router>
+            <Link to="/api/checkout">Next</Link>
+            <Route exact path="/api/checkout">
+              <Checkout />
+            </Route>
+          </Router>
+          <button>Submit</button><br></br>
           <input placeholder="Name" onChange={(event) => this.handleChangeFor('name', event)}/>
           <input placeholder="Street Address" onChange={(event) => this.handleChangeFor('address', event)}/>
           <input placeholder="City" onChange={(event) => this.handleChangeFor('city', event)}/>
