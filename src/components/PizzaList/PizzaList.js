@@ -11,7 +11,9 @@ class PizzaList extends Component {
           {this.props.pizzaTest.map((pizza, i) => 
             <PizzaItem 
               id={pizza.id}
-              pizza={pizza.pizza}
+              name={pizza.name}
+              description={pizza.description}
+              image={pizza._path}
               price={pizza.price}
               />
           )}
@@ -23,7 +25,7 @@ class PizzaList extends Component {
 
 const mapStateToProps = (reduxState) => {
   return {
-    PizzaList: reduxState.PizzaList;
+    PizzaList: reduxState.PizzaList
   };
 }
 
