@@ -7,7 +7,6 @@ import Admin from '../Admin/Admin';
 import Checkout from '../Checkout/Checkout'
 import {connect} from 'react-redux';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
-import Admin from '../Admin/Admin'
 
 
 class App extends Component {
