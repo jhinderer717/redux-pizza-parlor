@@ -48,6 +48,7 @@ class Order extends Component {
     return (
       <div>
         <form onSubmit={this.orderGet}>
+          <button>Next</button><br></br>
           <input placeholder="Name" onChange={(event) => this.handleChangeFor('name', event)}/>
           <input placeholder="Street Address" onChange={(event) => this.handleChangeFor('address', event)}/>
           <input placeholder="City" onChange={(event) => this.handleChangeFor('city', event)}/>
@@ -60,7 +61,6 @@ class Order extends Component {
             onChange={() => this.handleRadio('delivery')}/>
           <label htmlFor="female">Delivery</label>
 
-          <button>Submit</button>
         </form>
 
         
