@@ -16,10 +16,10 @@ class Admin extends Component {
         </thead>
         <tbody>
             <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>{this.props.name}</td>
+            <td>{this.props.time}</td>
+            <td>{this.props.type}</td>
+            <td>{this.props.cost}</td>
             </tr>
         </tbody>
       </div>
