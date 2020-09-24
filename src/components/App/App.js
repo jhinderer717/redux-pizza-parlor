@@ -3,8 +3,7 @@ import axios from 'axios';
 import './App.css';
 import PizzaList from '../PizzaList/PizzaList';
 import Order from '../Order/Order';
-
-
+import Checkout from '../Checkout/Checkout'
 import {connect} from 'react-redux';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
 
@@ -31,10 +30,18 @@ class App extends Component {
     }); // end axios
   } // end refreshPizzas
 
-  
-  
-  
-  
+  // refreshCheckout = () => {
+  //   axios({
+  //     method: 'GET',
+  //     url: '/api/checkout'
+  //   }).then((response) => {
+  //     console.log('checkout GET', response);
+  //      this.props.dispatch({
+  //        type: ''
+  //      })
+  //   }
+  // }
+
   render() {
     return (
       
@@ -61,20 +68,22 @@ class App extends Component {
           </nav>
 
           <main>
-            <Route path='/api/order'>
+            <Route path='/api/order' exact>
               <Order />
              </Route> 
             <Route path='/' exact>
               <PizzaList />
             </Route>
-            
-            {/* <Route path='/checkout'>
+
+            <Route path='/api/checkout' exact>
               <Checkout />
-            </Route>
+             </Route>   
+         
             <Route path='/admin'>
               <Admin />
             </Route> */}
           
+
           </main>
         </Router>
       </div>
