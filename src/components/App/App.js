@@ -58,7 +58,7 @@ class App extends Component {
           <main>
             <Route path='/api/order'>
               <Order />
-             </Route> 
+            </Route> 
             <Route path='/' exact>
               <PizzaList />
             </Route>
