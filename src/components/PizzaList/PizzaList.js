@@ -8,13 +8,10 @@ class PizzaList extends Component {
       <section>
         <h3>Pizza List</h3>
         <ul>
-          {this.props.reduxState.pizzaRouter.map((pizza, i) => 
-            <PizzaItem 
-              id={pizza.id}
-              name={pizza.name}
-              price={pizza.price}
-              image={pizza.image_path}
-              description={pizza.description}
+          {this.props.reduxState.pizzaReducer.map((pizza, i) => 
+            <PizzaItem
+              key={i}
+              pizza={pizza}
             />
           )}
         </ul>
