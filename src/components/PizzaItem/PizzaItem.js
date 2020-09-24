@@ -4,23 +4,32 @@ import {connect} from 'react-redux';
 
 class PizzaItem extends Component {
 
-    addProductToCart = (event) => {
-        console.log(this.props.pizza);
-        // Dispatch
+    addPizzaToCart = () => {
         this.props.dispatch({
-            type: "ADD_TO_CART",
+            type: "ADD_PIZZA",
             payload: this.props.pizza
-        });
-    }
+          });
+      } // end addPizzaToCart
 
     render() {
         return (
-            <li>
-                Name: {this.props.pizza.name}
-                Description: {this.props.pizza.description}
-                Price: {this.props.pizza.price}
-                <button onClick={this.addProductToCart}>Add</button>
-            </li>
+            <tr>
+                <td>
+                    <img className="pizzaPhotos" src={this.props.pizza.image_path} />
+                </td>
+                <td>
+                    {this.props.pizza.name}
+                </td>
+                <td>
+                    {this.props.pizza.description}
+                </td>
+                <td>
+                    ${this.props.pizza.price}
+                </td>
+                <td>
+                    <button onClick={this.addPizzaToCart}>Add</button>
+                </td>
+            </tr>
         )
     }
 }

@@ -8,7 +8,36 @@ class PizzaList extends Component {
     return (
       <section>
         <h3>Pizza List</h3>
-        
+
+        <table>
+          <th>
+            <td>
+              Image
+            </td>
+          </th>
+          <th>
+            <td>
+              Name
+            </td>
+          </th>
+          <th>
+            <td>
+              Description
+            </td>
+          </th>
+          <th>
+            <td>
+              Price
+            </td>
+          </th>
+
+          {this.props.reduxState.pizzaReducer.map((pizza, i) => 
+            <PizzaItem
+              key={i}
+              pizza={pizza}
+            />
+          )}
+        </table>
         <Route>
           <nav>
               <main>
@@ -21,15 +50,6 @@ class PizzaList extends Component {
               </main>
             </nav>
         </Route>
-
-        <ul>
-          {this.props.reduxState.pizzaReducer.map((pizza, i) => 
-            <PizzaItem
-              key={i}
-              pizza={pizza}
-            />
-          )}
-        </ul>
       </section>
     );
   }

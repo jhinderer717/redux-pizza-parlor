@@ -16,9 +16,53 @@ const pizzaReducer = ( state = [], action ) => {
   return state;
 }
 
+const initialOrder = {
+  customer_name: "",
+  street_address: "",
+  city: "",
+  zip: "",
+  total: "",
+  type: "",
+  pizzas: [{
+    id: "",
+    quantity: ""
+  }]
+}
+
+const orderReducer = ( state = initialOrder, action ) => {
+  if(action.type === "ADD_TO_CART"){
+    let newCart = action.payload;
+    return newCart;
+  }
+  return state;
+}
+
+const initialCart = {
+  totalPrice: 0,
+  cartItems: []
+}
+
+const cartReducer = ( state = initialCart, action ) => {
+  if(action.type === "ADD_PIZZA"){
+    let totalPrice = state.totalPrice;
+    let newCart = {
+      totalPrice: totalPrice + action.payload.price,
+      cartItems: [
+        ...state.cartItems,
+        action.payload
+      ]
+    }
+    return newCart;
+  }
+  return state;
+}
+
+
 const storeInstance = createStore(
   combineReducers({
     pizzaReducer,
+    orderReducer,
+    cartReducer
   }),
   applyMiddleware(logger),
 );
