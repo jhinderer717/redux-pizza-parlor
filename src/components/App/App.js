@@ -31,6 +31,10 @@ class App extends Component {
     }); // end axios
   } // end refreshPizzas
 
+  
+  
+  
+  
   render() {
     return (
       
@@ -52,6 +56,7 @@ class App extends Component {
                 Next
               </button>
               </Link>
+              <Link to="/checkout"></Link>
             </main>
           </nav>
 
@@ -62,6 +67,14 @@ class App extends Component {
             <Route path='/' exact>
               <PizzaList />
             </Route>
+            
+            {/* <Route path='/checkout'>
+              <Checkout />
+            </Route>
+            <Route path='/admin'>
+              <Admin />
+            </Route> */}
+          
           </main>
         </Router>
       </div>
