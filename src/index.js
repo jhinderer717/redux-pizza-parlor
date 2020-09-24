@@ -50,7 +50,7 @@ const cartReducer = ( state = initialCart, action ) => {
       totalPrice: Number(totalPrice) + Number(action.payload.price),
       cartItems: [
         ...state.cartItems,
-        action.payload.name
+        action.payload.id
       ]
     }
     return newCart;
