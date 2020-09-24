@@ -40,16 +40,17 @@ const orderReducer = ( state = initialOrder, action ) => {
 const initialCart = {
   totalPrice: 0,
   cartItems: []
+
 }
 
 const cartReducer = ( state = initialCart, action ) => {
   if(action.type === "ADD_PIZZA"){
     let totalPrice = state.totalPrice;
     let newCart = {
-      totalPrice: totalPrice + action.payload.price,
+      totalPrice: Number(totalPrice) + Number(action.payload.price),
       cartItems: [
         ...state.cartItems,
-        action.payload
+        action.payload.name
       ]
     }
     return newCart;
