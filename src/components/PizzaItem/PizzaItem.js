@@ -4,10 +4,19 @@ import {connect} from 'react-redux';
 
 class PizzaItem extends Component {
 
+    state = {
+        newPizza: {
+            name: this.props.pizza.name,
+            price: this.props.pizza.price,
+            id: this.props.pizza.id,
+            quantity: 1,
+        }
+    }
+
     addPizzaToCart = () => {
         this.props.dispatch({
             type: "ADD_PIZZA",
-            payload: this.props.pizza
+            payload: this.state.newPizza
           });
       } // end addPizzaToCart
 
