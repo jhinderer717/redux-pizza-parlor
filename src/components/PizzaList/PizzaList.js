@@ -38,6 +38,11 @@ class PizzaList extends Component {
             />
           )}
         </table>
+
+            <h3>
+              Cart Total: ${this.props.reduxState.cartReducer.totalPrice}
+            </h3>
+
         <Route>
           <nav>
               <main>

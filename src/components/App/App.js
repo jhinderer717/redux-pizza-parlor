@@ -3,6 +3,7 @@ import axios from 'axios';
 import './App.css';
 import PizzaList from '../PizzaList/PizzaList';
 import Order from '../Order/Order';
+import Admin from '../Admin/Admin';
 import Checkout from '../Checkout/Checkout'
 import {connect} from 'react-redux';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
@@ -70,7 +71,7 @@ class App extends Component {
          
             <Route path='/admin'>
               <Admin />
-            </Route> */}
+            </Route>
           
 
           </main>
