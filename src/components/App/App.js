@@ -63,6 +63,7 @@ class App extends Component {
                 Next
               </button>
               </Link>
+              <Link to="/checkout"></Link>
             </main>
           </nav>
 
@@ -73,9 +74,16 @@ class App extends Component {
             <Route path='/' exact>
               <PizzaList />
             </Route>
+
             <Route path='/api/checkout' exact>
               <Checkout />
-             </Route> 
+             </Route>   
+         
+            <Route path='/admin'>
+              <Admin />
+            </Route> */}
+          
+
           </main>
         </Router>
       </div>
