@@ -67,12 +67,13 @@ class App extends Component {
             <Route path='/' exact>
               <PizzaList />
             </Route>
-            <Route path='/checkout'>
+            
+            {/* <Route path='/checkout'>
               <Checkout />
             </Route>
             <Route path='/admin'>
               <Admin />
-            </Route>
+            </Route> */}
           
           </main>
         </Router>
