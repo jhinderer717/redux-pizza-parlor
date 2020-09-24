@@ -48,17 +48,6 @@ class App extends Component {
           <p>
             Pizza is great.
           </p>
-          
-          <nav>
-            <main>
-              <Link to="/api/order">
-              <button>
-                Next
-              </button>
-              </Link>
-              <Link to="/checkout"></Link>
-            </main>
-          </nav>
 
           <main>
             <Route path='/api/order'>
