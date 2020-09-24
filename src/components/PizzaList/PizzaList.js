@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import PizzaItem from '../compenent/PizzaItem';
+import PizzaItem from '../PizzaItem/PizzaItem';
 import {connect} from 'react-redux';
 
 class PizzaList extends Component {
@@ -8,14 +8,14 @@ class PizzaList extends Component {
       <section>
         <h3>Pizza List</h3>
         <ul>
-          {this.props.pizzaTest.map((pizza, i) => 
+          {this.props.reduxState.pizzaRouter.map((pizza, i) => 
             <PizzaItem 
               id={pizza.id}
               name={pizza.name}
-              description={pizza.description}
-              image={pizza._path}
               price={pizza.price}
-              />
+              image={pizza.image_path}
+              description={pizza.description}
+            />
           )}
         </ul>
       </section>
@@ -25,7 +25,7 @@ class PizzaList extends Component {
 
 const mapStateToProps = (reduxState) => {
   return {
-    PizzaList: reduxState.PizzaList
+    reduxState
   };
 }
 
