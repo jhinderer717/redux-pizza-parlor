@@ -25,8 +25,6 @@ this.adminGet();
          console.log('adminOrder Error', error)
        });
     }
-  
-
 
   render() {
     console.log('adminData this.state', this.state);
@@ -54,6 +52,7 @@ this.adminGet();
             )} 
           </tbody>
         </table>
+
       </div>
     );
   }
