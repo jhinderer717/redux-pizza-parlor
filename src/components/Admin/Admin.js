@@ -33,6 +33,7 @@ this.adminGet();
     return (
       <div>
         <h3>Admin Page</h3>
+        <table>
         <thead>
             <tr>
             <th>Name</th>
@@ -53,6 +54,7 @@ this.adminGet();
            
           )} 
           </tbody>
+          </table>
        
       </div>
     );

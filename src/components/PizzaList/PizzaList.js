@@ -10,26 +10,15 @@ class PizzaList extends Component {
         <h3>Pizza List</h3>
 
         <table>
-          <th>
-            <td>
-              Image
-            </td>
-          </th>
-          <th>
-            <td>
-              Name
-            </td>
-          </th>
-          <th>
-            <td>
-              Description
-            </td>
-          </th>
-          <th>
-            <td>
-              Price
-            </td>
-          </th>
+        <thead>
+            <tr>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th></th>
+            </tr>
+        </thead>
 
           {this.props.reduxState.pizzaReducer.map((pizza, i) => 
             <PizzaItem
