@@ -23,10 +23,10 @@ const initialOrder = {
   zip: "",
   total: "",
   type: "",
-  pizzas: [{
-    id: "",
-    quantity: ""
-  }]
+  // pizzas: [{
+  //   id: "",
+  //   quantity: ""
+  // }]
 }
 
 const orderReducer = ( state = initialOrder, action ) => {
@@ -50,7 +50,8 @@ const cartReducer = ( state = initialCart, action ) => {
       totalPrice: Number(totalPrice) + Number(action.payload.price),
       cartItems: [
         ...state.cartItems,
-        action.payload.id
+        {id: action.payload.id,
+        quantity: 1 }
       ]
     }
     return newCart;
