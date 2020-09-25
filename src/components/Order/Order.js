@@ -7,25 +7,24 @@ import Checkout from '../Checkout/Checkout.js';
 class Order extends Component {
 
   state = {
-    name: '',
-    address: '',
-    city: '',
-    zip: '',
-    type: ''
+    customer_name: "",
+    street_address: "",
+    city: "",
+    zip: "",
+    total: this.props.reduxState.cartReducer.totalPrice,
+    type: "",
+    pizzas: this.props.reduxState.cartReducer.cartItems
   }
 
   orderGet = () => {
     console.log('orderGet triggered');
     axios({
-      method: 'GET',
-      url: '/api/order'
+      method: 'POST',
+      url: '/api/order',
+      data: this.state
     }).then((response) => {
       console.log('GET response:', response);
 
-      this.props.dispatch({
-        type: "ADD_TO_CART",
-        payload: response.data
-      });
     }).catch(err => {
       console.log('GET err', err);
     }); // end axios
@@ -58,8 +57,8 @@ class Order extends Component {
             </Route>
           </Router>
           <button>Submit</button><br></br>
-          <input placeholder="Name" onChange={(event) => this.handleChangeFor('name', event)}/>
-          <input placeholder="Street Address" onChange={(event) => this.handleChangeFor('address', event)}/>
+          <input placeholder="Name" onChange={(event) => this.handleChangeFor('customer_name', event)}/>
+          <input placeholder="Street Address" onChange={(event) => this.handleChangeFor('street_address', event)}/>
           <input placeholder="City" onChange={(event) => this.handleChangeFor('city', event)}/>
           <input placeholder="Zip" type="number" onChange={(event) => this.handleChangeFor('zip', event)}/>
 
@@ -78,10 +77,10 @@ class Order extends Component {
   }
 } 
 
-// const mapStateToProps = (reduxState) => {
-//   return {
-//     reduxState
-//   };
-// }
+const mapStateToProps = (reduxState) => {
+  return {
+    reduxState
+  };
+}
 
-export default connect()(Order);
+export default connect(mapStateToProps)(Order);
