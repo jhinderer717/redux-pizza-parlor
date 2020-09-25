@@ -51,7 +51,6 @@ class PizzaList extends Component {
                   Next
                 </button>
                 </Link>
-                <Link to="/checkout"></Link>
               </main>
             </nav>
         </Route>
