@@ -25,8 +25,6 @@ this.adminGet();
          console.log('adminOrder Error', error)
        });
     }
-  
-
 
   render() {
     console.log('adminData this.state', this.state);
@@ -34,28 +32,27 @@ this.adminGet();
       <div>
         <h3>Admin Page</h3>
         <table>
-        <thead>
-            <tr>
-            <th>Name</th>
-            <th>Time Order Placed</th>
-            <th>Type</th>
-            <th>Cost</th>
-            </tr>
-
-        </thead>
-        <tbody>
-          {this.state.orders.map((order) =>  
-           <AdminItem 
-           name={order.customer_name}
-           time={order.time} 
-           type={order.type}
-           total={order.total}
-            />
-           
-          )} 
+          <thead>
+              <tr>
+                <th>Name</th>
+                <th>Time Order Placed</th>
+                <th>Type</th>
+                <th>Cost</th>
+              </tr>
+          </thead>
+          <tbody>
+            {this.state.orders.map((order) =>  
+              <AdminItem 
+                key={order.id}
+                name={order.customer_name}
+                time={order.time} 
+                type={order.type}
+                total={order.total}
+              />
+            )} 
           </tbody>
-          </table>
-       
+        </table>
+
       </div>
     );
   }

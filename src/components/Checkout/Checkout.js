@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import Order from '../Order/Order'
+// import Order from '../Order/Order';
 
 class Checkout extends Component {
   
