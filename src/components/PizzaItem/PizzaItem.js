@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 class PizzaItem extends Component {
 
     state = {
+        pizzaAdded: false,
         newPizza: {
             name: this.props.pizza.name,
             price: this.props.pizza.price,
@@ -14,14 +15,34 @@ class PizzaItem extends Component {
     }
 
     addPizzaToCart = () => {
+        this.setState({
+            pizzaAdded: !this.state.pizzaAdded,
+            newPizza: {
+                name: this.props.pizza.name,
+                price: this.props.pizza.price,
+                id: this.props.pizza.id,
+                quantity: 1,
+            }
+        });
         this.props.dispatch({
             type: "ADD_PIZZA",
             payload: this.state.newPizza
           });
       } // end addPizzaToCart
 
+    removePizzaFromCart = () => {
+    this.setState({
+        pizzaAdded: !this.state.pizzaAdded,
+    });
+    this.props.dispatch({
+        type: "REMOVE_PIZZA",
+        payload: this.state.newPizza
+        });
+    } // end addPizzaToCart
+
     render() {
         return (
+
             <tr>
                 <td>
                     <img className="pizzaPhotos" src={this.props.pizza.image_path} alt="" />
@@ -35,9 +56,19 @@ class PizzaItem extends Component {
                 <td>
                     ${this.props.pizza.price}
                 </td>
-                <td>
-                    <button onClick={this.addPizzaToCart}>Add</button>
-                </td>
+                {
+                    !this.state.pizzaAdded ||
+                    <td>
+                        <button onClick={this.removePizzaFromCart}>Remove</button>
+                    </td>
+                }     
+
+                {
+                    this.state.pizzaAdded ||
+                    <td>
+                        <button onClick={this.addPizzaToCart}>Add</button>
+                    </td>
+                }                                 
             </tr>
         )
     }
