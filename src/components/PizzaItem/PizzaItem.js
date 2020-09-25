@@ -24,7 +24,7 @@ class PizzaItem extends Component {
         return (
             <tr>
                 <td>
-                    <img className="pizzaPhotos" src={this.props.pizza.image_path} />
+                    <img className="pizzaPhotos" src={this.props.pizza.image_path} alt="" />
                 </td>
                 <td>
                     {this.props.pizza.name}
