@@ -36,12 +36,16 @@ class App extends Component {
   //     method: 'GET',
   //     url: '/api/checkout'
   //   }).then((response) => {
-  //     console.log('checkout GET', response);
-  //      this.props.dispatch({
-  //        type: ''
-  //      })
-  //   }
-  // }
+  //     console.log('GET response', response);
+
+  //     this.props.dispatch({
+  //       type: "SET_CHECKOUT",
+  //       payload: response.data
+  //     });
+  //   }).catch(err => {
+  //     console.log('GET err', err);
+  //   }); // end axios
+  // } // end refreshCheckout
 
   render() {
     return (
