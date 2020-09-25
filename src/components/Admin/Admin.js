@@ -33,27 +33,27 @@ this.adminGet();
     return (
       <div>
         <h3>Admin Page</h3>
-        <thead>
-            <tr>
-            <th>Name</th>
-            <th>Time Order Placed</th>
-            <th>Type</th>
-            <th>Cost</th>
-            </tr>
-
-        </thead>
-        <tbody>
-          {this.state.orders.map((order) =>  
-           <AdminItem 
-           name={order.customer_name}
-           time={order.time} 
-           type={order.type}
-           total={order.total}
-            />
-           
-          )} 
+        <table>
+          <thead>
+              <tr>
+                <th>Name</th>
+                <th>Time Order Placed</th>
+                <th>Type</th>
+                <th>Cost</th>
+              </tr>
+          </thead>
+          <tbody>
+            {this.state.orders.map((order) =>  
+              <AdminItem 
+                key={order.id}
+                name={order.customer_name}
+                time={order.time} 
+                type={order.type}
+                total={order.total}
+              />
+            )} 
           </tbody>
-       
+        </table>
       </div>
     );
   }
