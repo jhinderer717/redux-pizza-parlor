@@ -1,8 +1,35 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import AdminItem from '../AdminItem/AdminItem';
+import axios from 'axios';
 
 class Admin extends Component {
+ state = {
+   orders: []
+ }
+
+componentDidMount () {
+this.adminGet();
+}
+
+ adminGet = () => {
+    axios({
+      method: 'GET',
+      url: '/api/order'
+    }).then((response) => {
+      console.log('adminOrder get', response);
+    this.setState (
+      {orders: response.data}
+      )
+       }).catch(function(error){
+         console.log('adminOrder Error', error)
+       });
+    }
+  
+
+
   render() {
+    console.log('adminData this.state', this.state);
     return (
       <div>
         <h3>Admin Page</h3>
@@ -13,15 +40,20 @@ class Admin extends Component {
             <th>Type</th>
             <th>Cost</th>
             </tr>
+
         </thead>
         <tbody>
-            <tr>
-            <td>{this.props.name}</td>
-            <td>{this.props.time}</td>
-            <td>{this.props.type}</td>
-            <td>{this.props.cost}</td>
-            </tr>
-        </tbody>
+          {this.state.orders.map((order) =>  
+           <AdminItem 
+           name={order.customer_name}
+           time={order.time} 
+           type={order.type}
+           total={order.total}
+            />
+           
+          )} 
+          </tbody>
+       
       </div>
     );
   }
